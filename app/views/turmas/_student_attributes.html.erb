@@ -1,0 +1,40 @@
+<div class="card">
+	  <div class="card-body">
+	    <b> <%= aluno.name %> </b>
+	    <small>@<%= aluno.username %></small>
+		
+
+		<%= form_for (aluno.user_attribute), :url => add_attributes_turmas_path, :html =>{:method => :post} do | f |%>
+			<%= hidden_field_tag :user_id, aluno.id%>
+
+			<div class="row"> 
+				<div class="col">
+					<%= f.submit "xp", class: "xp button" %> <br> <%= aluno.user_attribute.level %>/
+		   			 <%= aluno.user_attribute.xp %>
+				</div>
+
+				<div class="col">
+					<%= f.submit "hp", class: "hp button" %> <br>
+					<b> Hp: </b> <%= aluno.user_attribute.hp %>
+				</div>
+				<div class="col">
+					<%= f.submit "money", class: "money button" %> <br>
+					<b> Money: </b> <%= aluno.user_attribute.money  %>
+				</div>
+				<div class="col">
+					<%= f.submit "mana", class: "mana button" %> <br>
+					<b> Mana: </b> <%= aluno.user_attribute.mana %>
+				</div>
+				<div class="col">
+					<%= text_field_tag :value, " ", class: "form-control" %>
+				</div>
+
+			</div>
+		<% end %>
+
+
+
+	    
+	    
+	  </div>
+</div>	

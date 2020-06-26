@@ -1,0 +1,71 @@
+<div class="container"> 
+
+
+    <div>
+      
+      <div class="row">
+        <div class="col-4">
+          
+          <div class="card" style="width: 15rem;">
+              <% url = Gravatar.new(current_user.email).image_url %>
+              <center><%= image_tag url, class: 'card-img-top rounded', style: "width: 13rem; margin-top:1rem" %> </center>
+              <div class="card-body">
+                <h5 class="card-title"> <%= current_user.name  %> </h5>
+                <p class="card-text"></p>
+                <%= link_to  "@#{current_user.username}", edit_user_registration_path, class: "badge badge-pill badge-dark" %>
+              </div>
+          </div>    
+
+
+        </div>
+
+        
+        <div class="col-8">
+            
+
+          <ul class="list-group">
+            <%= render 'form', tweet: @tweet %>
+            <br>  
+            <% @tweets.order(id: :desc).each do |tweet| %>             
+              <%= link_to tweet, class:"list-group-item list-group-item-action"  do  %>
+                <h6 class="list-group-heading"> 
+                  <b> @<%= tweet.user.username %>  - </b>
+                  <small> <%= tweet.user.name %> </small>
+                </h6>
+                
+                <table class=" table"> 
+                  <t4>
+                   <p class="list-group-text"><%= tweet.conteudo %></p>
+                    
+                 </tr>
+                 <% if tweet.photo.file? %>
+                      <tr>  <%= image_tag tweet.photo.url, class:"card-img-top mx-auto", style:"width:30%;" %> </tr>
+                  <% end %>
+
+
+                </table>
+                <small class="list-group-text">(<%= tweet.created_at.strftime("%d/%m/%Y - %H:%M") %>)</small> 
+                
+
+              <%end%>
+              <br>
+            <% end %>
+          </ul> 
+                    
+
+        </div>
+      </div>
+
+  </div>
+
+  
+ 
+          
+
+     
+
+
+
+    
+
+</div>

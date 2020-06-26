@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Turmas</h1>
+<div><%= link_to 'Cadastrar turma', new_turma_path, class:"btn btn-light" %> </div> <br>
+
+
+  
+    <% @turmas.each do |turma| %>
+      <ul class='list-group'>
+        <li class='list-group-item'>
+          <%= image_tag(turma.image.url, :width => 40) if turma.image.present? %>
+          <br>
+          <h6> <%= turma.nome %> </h6> 
+          <small> Inicio: <%= turma.inicio.strftime("%d/%m/%Y") %> </small> 
+          <small> Termino: <%= turma.fim.strftime("%d/%m/%Y") %> </small>
+          <div align='right'>
+            <%= link_to 'Show', turma, class:"btn btn-light" %>
+            <%= link_to 'Edit', edit_turma_path(turma), class:"btn btn-light" %>
+            <%= link_to 'Destroy', turma, class:"btn btn-light",  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </li>
+
+
+
+      </ul>
+
+    <% end %>
+
+<br>
+
+

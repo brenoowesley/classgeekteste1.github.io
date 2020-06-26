@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+
+	<!-- turma -->
+	<div class="col-4">
+		<div class="card" style="width: 20rem;">
+		  
+		  <div class="card-body">
+		  	<%= image_tag @turma.image.url(:medium) %>
+		    <h5 class="card-title"> <%= @turma.nome %> </h5>
+		    <p class="card-text"> Inicio: <%= @turma.inicio %> </p>
+		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+		</div>
+	</div>
+
+
+
+	<!-- alunos -->
+	<div class="col-8">
+			<div class="card">
+			  <div class="card-body">
+			
+			<!-- card individul alunos -->	
+			<% @turma.users.each do |aluno| %>	
+				<%= render :partial => "student_attributes", :locals => {:aluno => aluno} %>			    
+			<% end %>	  
+			  
+			  </div>
+			</div>		
+
+		<%= form_tag add_aluno_turmas_path(@turma), :method => :post do %>
+			<%= email_field_tag :email, "",placeholder: 'email@email.com'%>
+			<%= hidden_field_tag :turma_id, @turma.id %>
+			<%= submit_tag "Cadastrar" %>
+		<% end %>
+
+	</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

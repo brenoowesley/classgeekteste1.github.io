@@ -1,0 +1,51 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+@import "container";
+
+.button{
+	border: none;
+	padding: 15px;
+	color: transparent;
+	cursor: pointer;
+}
+
+
+.xp{
+	background: image-url('exp.png') no-repeat center center;
+
+	background-size: 40px 40px;
+	
+
+
+}
+
+
+.hp{
+	background: image-url('hp.png') no-repeat center center;
+
+	background-size: 40px 40px;
+	
+
+
+}
+
+
+.mana{
+	background: image-url('mana.png') no-repeat center center;
+
+	background-size: 40px 40px;
+	
+
+
+}
+
+.money{
+	background: image-url('gold.png') no-repeat center center;
+
+	background-size: 40px 40px;
+	
+
+
+}
+
